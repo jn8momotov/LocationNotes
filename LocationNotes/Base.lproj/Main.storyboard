@@ -31,13 +31,13 @@
         <!--Notes-->
         <scene sceneID="Bhm-IL-qNj">
             <objects>
-                <tableViewController id="f29-15-nvx" sceneMemberID="viewController">
+                <tableViewController id="f29-15-nvx" customClass="FolderController" customModule="LocationNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="deE-je-qVJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="B8y-Yz-Ybr" rowHeight="55" style="IBUITableViewCellStyleDefault" id="TTw-sg-Uam">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellNote" textLabel="B8y-Yz-Ybr" detailTextLabel="J7e-mQ-ORa" rowHeight="55" style="IBUITableViewCellStyleSubtitle" id="TTw-sg-Uam">
                                 <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TTw-sg-Uam" id="WRZ-pY-0vG">
@@ -45,9 +45,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B8y-Yz-Ybr">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="54.5"/>
+                                            <rect key="frame" x="16" y="10" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J7e-mQ-ORa">
+                                            <rect key="frame" x="16" y="30.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -61,8 +68,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notes" id="WqL-OP-njd">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5A5-cR-XlC"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5A5-cR-XlC">
+                            <connections>
+                                <action selector="addNoteBarButtonPressed:" destination="f29-15-nvx" id="OCb-f4-OdP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="WCM-20-Vkm" kind="show" identifier="segueToNote" id="jH0-Zt-9v1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lmT-xa-mLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -177,10 +191,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Name Folder" id="4pG-U4-7xt">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZA5-yo-VUi"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZA5-yo-VUi">
+                            <connections>
+                                <action selector="addNoteBarButtonPressed:" destination="Gg2-dN-0KY" id="w85-8f-jiL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="WCM-20-Vkm" kind="show" id="Gre-Zj-TRI"/>
+                        <segue destination="WCM-20-Vkm" kind="show" identifier="segueToNote" id="Gre-Zj-TRI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DkP-Ou-ur4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -190,7 +208,7 @@
         <!--Name Note-->
         <scene sceneID="t1K-cz-3LF">
             <objects>
-                <tableViewController id="WCM-20-Vkm" sceneMemberID="viewController">
+                <tableViewController id="WCM-20-Vkm" customClass="NoteController" customModule="LocationNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="I6e-1H-Dv7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -298,10 +316,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Name Note" id="PLU-jE-HVQ"/>
+                    <connections>
+                        <outlet property="descriptionText" destination="iiA-ie-iS1" id="eD6-vq-qHX"/>
+                        <outlet property="imageNote" destination="r5o-hf-ARl" id="KEU-Xk-EiY"/>
+                        <outlet property="nameTextField" destination="KYO-Kj-hj2" id="4ON-J7-X6e"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rrs-dr-7Nc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3429.5999999999999" y="-181.25937031484258"/>
+            <point key="canvasLocation" x="2529" y="543"/>
         </scene>
         <!--Map-->
         <scene sceneID="VPI-oR-fig">
@@ -361,4 +384,7 @@
             <point key="canvasLocation" x="663.20000000000005" y="-181.25937031484258"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jH0-Zt-9v1"/>
+    </inferredMetricsTieBreakers>
 </document>

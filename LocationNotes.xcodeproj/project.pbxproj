@@ -23,6 +23,7 @@
 		7AB309F8217F7DEF005C3CB0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB309F7217F7DEF005C3CB0 /* CoreDataManager.swift */; };
 		7AB309FA217F9C97005C3CB0 /* FoldersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB309F9217F9C97005C3CB0 /* FoldersController.swift */; };
 		7AB309FC217FA431005C3CB0 /* FolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB309FB217FA431005C3CB0 /* FolderController.swift */; };
+		7AE8C39A217FB0E00079FE46 /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE8C399217FB0E00079FE46 /* NoteController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		7AB309F7217F7DEF005C3CB0 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7AB309F9217F9C97005C3CB0 /* FoldersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersController.swift; sourceTree = "<group>"; };
 		7AB309FB217FA431005C3CB0 /* FolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderController.swift; sourceTree = "<group>"; };
+		7AE8C399217FB0E00079FE46 /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				7AB309E0217F713C005C3CB0 /* Info.plist */,
 				7AB309F9217F9C97005C3CB0 /* FoldersController.swift */,
 				7AB309FB217FA431005C3CB0 /* FolderController.swift */,
+				7AE8C399217FB0E00079FE46 /* NoteController.swift */,
 			);
 			path = LocationNotes;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				7AB309F1217F7A76005C3CB0 /* ImageNote+CoreDataProperties.swift in Sources */,
 				7AB309F4217F7A76005C3CB0 /* Location+CoreDataClass.swift in Sources */,
 				7AB309D2217F713B005C3CB0 /* AppDelegate.swift in Sources */,
+				7AE8C39A217FB0E00079FE46 /* NoteController.swift in Sources */,
 				7AB309DA217F713B005C3CB0 /* LocationNotes.xcdatamodeld in Sources */,
 				7AB309F8217F7DEF005C3CB0 /* CoreDataManager.swift in Sources */,
 			);
