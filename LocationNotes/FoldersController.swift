@@ -24,6 +24,7 @@ class FoldersController: UITableViewController {
             let text = alertController.textFields?[0].text
             if text != "" {
                 _ = Folder.newFolder(name: text!)
+                CoreDataManager.sharedInstance.saveContext()
                 self.tableView.reloadData()
             }
         }
@@ -52,6 +53,10 @@ class FoldersController: UITableViewController {
         cell.textLabel?.text = folder.name
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toListNotes", sender: self)
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -61,17 +66,16 @@ class FoldersController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            CoreDataManager.sharedInstance.managedObjectContext.delete(folders[indexPath.row])
+            CoreDataManager.sharedInstance.saveContext()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -88,14 +92,18 @@ class FoldersController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        switch segue.identifier {
+        case "toListNotes":
+            let controller = segue.destination as? FolderController
+            let folder = folders[tableView.indexPathForSelectedRow!.row]
+            controller?.folder = folder
+        default:
+            return
+        }
     }
-    */
 
 }

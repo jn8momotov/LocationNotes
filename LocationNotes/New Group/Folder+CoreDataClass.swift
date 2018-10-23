@@ -27,4 +27,8 @@ public class Folder: NSManagedObject {
         return note
     }
     
+    var notesSorted: [Note] {
+        return self.notes?.sortedArray(using: [NSSortDescriptor(key: "dateUpdate", ascending: false)]) as! [Note]
+    }
+    
 }

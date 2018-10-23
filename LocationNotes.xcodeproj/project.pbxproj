@@ -22,6 +22,7 @@
 		7AB309F5217F7A76005C3CB0 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB309ED217F7A76005C3CB0 /* Location+CoreDataProperties.swift */; };
 		7AB309F8217F7DEF005C3CB0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB309F7217F7DEF005C3CB0 /* CoreDataManager.swift */; };
 		7AB309FA217F9C97005C3CB0 /* FoldersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB309F9217F9C97005C3CB0 /* FoldersController.swift */; };
+		7AB309FC217FA431005C3CB0 /* FolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB309FB217FA431005C3CB0 /* FolderController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		7AB309ED217F7A76005C3CB0 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7AB309F7217F7DEF005C3CB0 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7AB309F9217F9C97005C3CB0 /* FoldersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersController.swift; sourceTree = "<group>"; };
+		7AB309FB217FA431005C3CB0 /* FolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				7AB309DD217F713C005C3CB0 /* LaunchScreen.storyboard */,
 				7AB309E0217F713C005C3CB0 /* Info.plist */,
 				7AB309F9217F9C97005C3CB0 /* FoldersController.swift */,
+				7AB309FB217FA431005C3CB0 /* FolderController.swift */,
 			);
 			path = LocationNotes;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				7AB309F0217F7A76005C3CB0 /* ImageNote+CoreDataClass.swift in Sources */,
 				7AB309FA217F9C97005C3CB0 /* FoldersController.swift in Sources */,
 				7AB309F3217F7A76005C3CB0 /* Folder+CoreDataProperties.swift in Sources */,
+				7AB309FC217FA431005C3CB0 /* FolderController.swift in Sources */,
 				7AB309F2217F7A76005C3CB0 /* Folder+CoreDataClass.swift in Sources */,
 				7AB309EE217F7A76005C3CB0 /* Note+CoreDataClass.swift in Sources */,
 				7AB309F5217F7A76005C3CB0 /* Location+CoreDataProperties.swift in Sources */,

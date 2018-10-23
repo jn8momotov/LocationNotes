@@ -33,4 +33,11 @@ public class Note: NSManagedObject {
         self.location = location
     }
     
+    var dateUpdateString: String {
+        let dateFormat = DateFormatter()
+        dateFormat.dateStyle = .medium
+        dateFormat.timeStyle = .short
+        return dateFormat.string(from: self.dateUpdate! as Date)
+    }
+    
 }
