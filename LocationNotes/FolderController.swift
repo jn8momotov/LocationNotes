@@ -49,12 +49,22 @@ class FolderController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notesActual.count
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellNote", for: indexPath)
         let note = notesActual[indexPath.row]
         cell.textLabel?.text = note.name!
         cell.detailTextLabel?.text = note.dateUpdateString
+        if let image = note.imageSmall {
+            cell.imageView?.image = UIImage(data: image as Data)
+        }
+        else {
+            cell.imageView?.image = nil
+        }
         return cell
     }
     
@@ -71,17 +81,16 @@ class FolderController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            CoreDataManager.sharedInstance.managedObjectContext.delete(notesActual[indexPath.row])
+            CoreDataManager.sharedInstance.saveContext()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.

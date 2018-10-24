@@ -15,15 +15,32 @@ class NoteController: UITableViewController {
     @IBOutlet weak var imageNote: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descriptionText: UITextView!
+    @IBOutlet weak var nameFolderLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.text = note?.name
         descriptionText.text = note?.textDescription
+        imageNote.image = note?.imageActual
+        navigationItem.title = note?.name
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        if nameTextField.text == "", descriptionText.text == "" {
+    override func viewWillAppear(_ animated: Bool) {
+        if let folder = note?.folder {
+            nameFolderLabel.text = folder.name
+        }
+        else {
+            nameFolderLabel.text = "-"
+        }
+    }
+    
+    @IBAction func saveNoteBarButtonPressed(_ sender: UIBarButtonItem) {
+        saveNote()
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func saveNote() {
+        if nameTextField.text == "", descriptionText.text == "", imageNote.image == nil {
             CoreDataManager.sharedInstance.managedObjectContext.delete(note!)
             CoreDataManager.sharedInstance.saveContext()
             return
@@ -33,6 +50,7 @@ class NoteController: UITableViewController {
         }
         note?.name = nameTextField.text
         note?.textDescription = descriptionText.text
+        note?.imageActual = imageNote.image
         CoreDataManager.sharedInstance.saveContext()
     }
 
@@ -41,6 +59,7 @@ class NoteController: UITableViewController {
     let imagePicker = UIImagePickerController()
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0, indexPath.row == 0 {
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -112,15 +131,17 @@ class NoteController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        switch segue.identifier {
+        case "segueToSelectFolder":
+            (segue.destination as! SelectFolderController).note = note
+        default:
+            return
+        }
     }
-    */
 
 }
 

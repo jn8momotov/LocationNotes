@@ -13,6 +13,10 @@ class FoldersController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     @IBAction func addFolderBarButtonPressed(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Create new folder", message: nil, preferredStyle: .alert)
@@ -23,7 +27,7 @@ class FoldersController: UITableViewController {
         let actionAdd = UIAlertAction(title: "Create", style: .default) { (alert) in
             let text = alertController.textFields?[0].text
             if text != "" {
-                _ = Folder.newFolder(name: text!)
+                _ = Folder.newFolder(name: text!.uppercased())
                 CoreDataManager.sharedInstance.saveContext()
                 self.tableView.reloadData()
             }
@@ -44,13 +48,14 @@ class FoldersController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
+        return 60
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellFolder", for: indexPath)
         let folder = folders[indexPath.row]
         cell.textLabel?.text = folder.name
+        cell.detailTextLabel?.text = "\(folder.notes?.count ?? 0) items"
         return cell
     }
     

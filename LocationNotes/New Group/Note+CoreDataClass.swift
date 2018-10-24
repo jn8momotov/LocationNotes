@@ -23,6 +23,33 @@ public class Note: NSManagedObject {
         return note
     }
     
+    var imageActual: UIImage? {
+        get {
+            if self.image != nil {
+                if image?.imageBig != nil {
+                    return UIImage(data: self.image!.imageBig! as Data)
+                }
+            }
+            return nil
+        }
+        set {
+            if newValue == nil {
+                if self.image != nil {
+                    CoreDataManager.sharedInstance.managedObjectContext.delete(self.image!)
+                }
+                self.imageSmall = nil
+            }
+            else {
+                if self.image == nil {
+                    self.image = ImageNote(context: CoreDataManager.sharedInstance.managedObjectContext)
+                }
+                self.image?.imageBig = newValue?.jpegData(compressionQuality: 1) as NSData?
+                self.imageSmall = newValue?.jpegData(compressionQuality: 0.05) as NSData?
+            }
+            dateUpdate = NSDate()
+        }
+    }
+    
     func addImage(image: UIImage) {
         let imageNote = ImageNote(context: CoreDataManager.sharedInstance.managedObjectContext)
         imageNote.imageBig = image.jpegData(compressionQuality: 1) as NSData?

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A8BE75121810ABC00DF0C65 /* SelectFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8BE75021810ABC00DF0C65 /* SelectFolderController.swift */; };
 		7AB309D2217F713B005C3CB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB309D1217F713B005C3CB0 /* AppDelegate.swift */; };
 		7AB309D7217F713B005C3CB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AB309D5217F713B005C3CB0 /* Main.storyboard */; };
 		7AB309DA217F713B005C3CB0 /* LocationNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7AB309D8217F713B005C3CB0 /* LocationNotes.xcdatamodeld */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A8BE75021810ABC00DF0C65 /* SelectFolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFolderController.swift; sourceTree = "<group>"; };
 		7AB309CE217F713B005C3CB0 /* LocationNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB309D1217F713B005C3CB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AB309D6217F713B005C3CB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				7AB309F9217F9C97005C3CB0 /* FoldersController.swift */,
 				7AB309FB217FA431005C3CB0 /* FolderController.swift */,
 				7AE8C399217FB0E00079FE46 /* NoteController.swift */,
+				7A8BE75021810ABC00DF0C65 /* SelectFolderController.swift */,
 			);
 			path = LocationNotes;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				7AB309F1217F7A76005C3CB0 /* ImageNote+CoreDataProperties.swift in Sources */,
 				7AB309F4217F7A76005C3CB0 /* Location+CoreDataClass.swift in Sources */,
 				7AB309D2217F713B005C3CB0 /* AppDelegate.swift in Sources */,
+				7A8BE75121810ABC00DF0C65 /* SelectFolderController.swift in Sources */,
 				7AE8C39A217FB0E00079FE46 /* NoteController.swift in Sources */,
 				7AB309DA217F713B005C3CB0 /* LocationNotes.xcdatamodeld in Sources */,
 				7AB309F8217F7DEF005C3CB0 /* CoreDataManager.swift in Sources */,
