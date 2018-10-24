@@ -38,6 +38,35 @@ class NoteController: UITableViewController {
 
     // MARK: - Table view data source
 
+    let imagePicker = UIImagePickerController()
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0, indexPath.row == 0 {
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let libraryAction = UIAlertAction(title: "Select from library", style: .default) { (action) in
+                self.imagePicker.sourceType = .photoLibrary
+                self.imagePicker.delegate = self
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+            let takePhotoAction = UIAlertAction(title: "Take photo", style: .default) { (action) in
+                self.imagePicker.sourceType = .camera
+                self.imagePicker.delegate = self
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+            alertController.addAction(libraryAction)
+            alertController.addAction(takePhotoAction)
+            if imageNote.image != nil {
+                let deleteAction = UIAlertAction(title: "Delete photo", style: .destructive) { (action) in
+                    self.imageNote.image = nil
+                }
+                alertController.addAction(deleteAction)
+            }
+            alertController.addAction(cancelAction)
+            present(alertController, animated: true, completion: nil)
+        }
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
@@ -93,4 +122,17 @@ class NoteController: UITableViewController {
     }
     */
 
+}
+
+extension NoteController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        imageNote.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
