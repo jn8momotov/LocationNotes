@@ -12,6 +12,10 @@ class FoldersController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        LocationManager.sharedInstance.requestAuth()
+        LocationManager.sharedInstance.getCurrentLocation { (location) in
+            print(location)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

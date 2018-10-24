@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7A8BE75121810ABC00DF0C65 /* SelectFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8BE75021810ABC00DF0C65 /* SelectFolderController.swift */; };
+		7A8BE754218111F900DF0C65 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8BE753218111F900DF0C65 /* LocationManager.swift */; };
 		7AB309D2217F713B005C3CB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB309D1217F713B005C3CB0 /* AppDelegate.swift */; };
 		7AB309D7217F713B005C3CB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AB309D5217F713B005C3CB0 /* Main.storyboard */; };
 		7AB309DA217F713B005C3CB0 /* LocationNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7AB309D8217F713B005C3CB0 /* LocationNotes.xcdatamodeld */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		7A8BE75021810ABC00DF0C65 /* SelectFolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFolderController.swift; sourceTree = "<group>"; };
+		7A8BE753218111F900DF0C65 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		7AB309CE217F713B005C3CB0 /* LocationNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB309D1217F713B005C3CB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AB309D6217F713B005C3CB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,6 +63,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A8BE752218111D500DF0C65 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7AB309D8217F713B005C3CB0 /* LocationNotes.xcdatamodeld */,
+				7AB309E6217F7A76005C3CB0 /* Note+CoreDataClass.swift */,
+				7AB309E7217F7A76005C3CB0 /* Note+CoreDataProperties.swift */,
+				7AB309E8217F7A76005C3CB0 /* ImageNote+CoreDataClass.swift */,
+				7AB309E9217F7A76005C3CB0 /* ImageNote+CoreDataProperties.swift */,
+				7AB309EA217F7A76005C3CB0 /* Folder+CoreDataClass.swift */,
+				7AB309EB217F7A76005C3CB0 /* Folder+CoreDataProperties.swift */,
+				7AB309EC217F7A76005C3CB0 /* Location+CoreDataClass.swift */,
+				7AB309ED217F7A76005C3CB0 /* Location+CoreDataProperties.swift */,
+				7AB309F7217F7DEF005C3CB0 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		7AB309C5217F713B005C3CB0 = {
 			isa = PBXGroup;
 			children = (
@@ -97,16 +116,8 @@
 		7AB309F6217F7A7B005C3CB0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7AB309D8217F713B005C3CB0 /* LocationNotes.xcdatamodeld */,
-				7AB309E6217F7A76005C3CB0 /* Note+CoreDataClass.swift */,
-				7AB309E7217F7A76005C3CB0 /* Note+CoreDataProperties.swift */,
-				7AB309E8217F7A76005C3CB0 /* ImageNote+CoreDataClass.swift */,
-				7AB309E9217F7A76005C3CB0 /* ImageNote+CoreDataProperties.swift */,
-				7AB309EA217F7A76005C3CB0 /* Folder+CoreDataClass.swift */,
-				7AB309EB217F7A76005C3CB0 /* Folder+CoreDataProperties.swift */,
-				7AB309EC217F7A76005C3CB0 /* Location+CoreDataClass.swift */,
-				7AB309ED217F7A76005C3CB0 /* Location+CoreDataProperties.swift */,
-				7AB309F7217F7DEF005C3CB0 /* CoreDataManager.swift */,
+				7A8BE753218111F900DF0C65 /* LocationManager.swift */,
+				7A8BE752218111D500DF0C65 /* CoreData */,
 			);
 			name = Model;
 			path = "New Group";
@@ -187,6 +198,7 @@
 				7AB309FA217F9C97005C3CB0 /* FoldersController.swift in Sources */,
 				7AB309F3217F7A76005C3CB0 /* Folder+CoreDataProperties.swift in Sources */,
 				7AB309FC217FA431005C3CB0 /* FolderController.swift in Sources */,
+				7A8BE754218111F900DF0C65 /* LocationManager.swift in Sources */,
 				7AB309F2217F7A76005C3CB0 /* Folder+CoreDataClass.swift in Sources */,
 				7AB309EE217F7A76005C3CB0 /* Note+CoreDataClass.swift in Sources */,
 				7AB309F5217F7A76005C3CB0 /* Location+CoreDataProperties.swift in Sources */,
