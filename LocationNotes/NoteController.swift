@@ -30,7 +30,7 @@ class NoteController: UITableViewController {
             nameFolderLabel.text = folder.name
         }
         else {
-            nameFolderLabel.text = "-"
+            nameFolderLabel.text = "No selected".localize()
         }
     }
     
@@ -62,13 +62,13 @@ class NoteController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0, indexPath.row == 0 {
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            let libraryAction = UIAlertAction(title: "Select from library", style: .default) { (action) in
+            let cancelAction = UIAlertAction(title: "Cancel".localize(), style: .cancel, handler: nil)
+            let libraryAction = UIAlertAction(title: "Select from library".localize(), style: .default) { (action) in
                 self.imagePicker.sourceType = .photoLibrary
                 self.imagePicker.delegate = self
                 self.present(self.imagePicker, animated: true, completion: nil)
             }
-            let takePhotoAction = UIAlertAction(title: "Take photo", style: .default) { (action) in
+            let takePhotoAction = UIAlertAction(title: "Take photo".localize(), style: .default) { (action) in
                 self.imagePicker.sourceType = .camera
                 self.imagePicker.delegate = self
                 self.present(self.imagePicker, animated: true, completion: nil)
@@ -76,7 +76,7 @@ class NoteController: UITableViewController {
             alertController.addAction(libraryAction)
             alertController.addAction(takePhotoAction)
             if imageNote.image != nil {
-                let deleteAction = UIAlertAction(title: "Delete photo", style: .destructive) { (action) in
+                let deleteAction = UIAlertAction(title: "Delete photo".localize(), style: .destructive) { (action) in
                     self.imageNote.image = nil
                 }
                 alertController.addAction(deleteAction)
@@ -85,55 +85,9 @@ class NoteController: UITableViewController {
             present(alertController, animated: true, completion: nil)
         }
     }
-    
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "segueToSelectFolder":

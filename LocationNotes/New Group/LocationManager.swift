@@ -33,7 +33,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func getCurrentLocation(handler: ((LocationCoordinate) -> Void)?) {
         guard CLLocationManager.authorizationStatus() == .authorizedWhenInUse else {
-            print("Нет доступа к локации")
             return
         }
         handlerForSave = handler
@@ -41,7 +40,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         manager.activityType = .other
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.startUpdatingLocation()
-        print("Начали получать локацию")
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

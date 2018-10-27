@@ -25,7 +25,7 @@ class FolderController: UITableViewController {
             navigationItem.title = folder.name
         }
         else {
-            navigationItem.title = "All notes"
+            navigationItem.title = "All notes".localize()
         }
     }
     
@@ -39,7 +39,6 @@ class FolderController: UITableViewController {
         selectedNote = Note.newNote(name: "", in: folder)
         selectedNote?.addCurrentLocation()
         performSegue(withIdentifier: "segueToNote", sender: self)
-        print("Координаты заметки: \(selectedNote?.locationActual)")
     }
     
     // MARK: - Table view data source
@@ -53,7 +52,7 @@ class FolderController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
+        return 60
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,39 +74,13 @@ class FolderController: UITableViewController {
         performSegue(withIdentifier: "segueToNote", sender: self)
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             CoreDataManager.sharedInstance.managedObjectContext.delete(notesActual[indexPath.row])
             CoreDataManager.sharedInstance.saveContext()
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        } else if editingStyle == .insert { }
     }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     // MARK: - Navigation
 

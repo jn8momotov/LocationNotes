@@ -17,6 +17,8 @@ class MapController: UIViewController {
         super.viewDidLoad()
         mapView.delegate = self
         mapView.showsUserLocation = true
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressedOnMap))
+        mapView.gestureRecognizers = [longPress]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,8 +28,6 @@ class MapController: UIViewController {
                 mapView.addAnnotation(NoteAnnotation(note: note))
             }
         }
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressedOnMap))
-        mapView.gestureRecognizers = [longPress]
     }
     
     @objc func longPressedOnMap(recognizer: UIGestureRecognizer) {
@@ -38,8 +38,12 @@ class MapController: UIViewController {
         let coordinate = mapView.convert(point, toCoordinateFrom: mapView)
         let newNote = Note.newNote(name: "", in: nil)
         newNote.locationActual = LocationCoordinate(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        showController(with: newNote)
+    }
+    
+    func showController(with note: Note) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "noteId") as! NoteController
-        controller.note = newNote
+        controller.note = note
         navigationController?.pushViewController(controller, animated: true)
     }
 
@@ -62,9 +66,7 @@ extension MapController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "noteId") as! NoteController
-        controller.note = (view.annotation as! NoteAnnotation).note
-        navigationController?.pushViewController(controller, animated: true)
+        showController(with: (view.annotation as! NoteAnnotation).note)
     }
     
 }

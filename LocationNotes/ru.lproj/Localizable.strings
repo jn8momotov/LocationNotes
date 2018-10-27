@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  LocationNotes
+
+  Created by Евгений on 28/10/2018.
+  Copyright © 2018 Евгений. All rights reserved.
+*/
+
+"Create new folder" = "Новая папка";
+"Folder name" = "Название папки";
+"Cancel" = "Отмена";
+"Create" = "Создать";
+"items" = "заметок";
+"All notes" = "Все заметки";
+"No selected" = "Не выбрано";
+"Select from library" = "Выбрать из медиатеки";
+"Take photo" = "Сделать фото";
+"Delete photo" = "Удалить фото";
