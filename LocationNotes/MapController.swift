@@ -16,11 +16,7 @@ class MapController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        for note in notes {
-            if note.locationActual != nil {
-                mapView.addAnnotation(NoteAnnotation(note: note))
-            }
-        }
+        mapView.showsUserLocation = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +26,21 @@ class MapController: UIViewController {
                 mapView.addAnnotation(NoteAnnotation(note: note))
             }
         }
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressedOnMap))
+        mapView.gestureRecognizers = [longPress]
+    }
+    
+    @objc func longPressedOnMap(recognizer: UIGestureRecognizer) {
+        if recognizer.state != .began {
+            return
+        }
+        let point = recognizer.location(in: mapView)
+        let coordinate = mapView.convert(point, toCoordinateFrom: mapView)
+        let newNote = Note.newNote(name: "", in: nil)
+        newNote.locationActual = LocationCoordinate(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        let controller = storyboard?.instantiateViewController(withIdentifier: "noteId") as! NoteController
+        controller.note = newNote
+        navigationController?.pushViewController(controller, animated: true)
     }
 
 }
@@ -37,6 +48,12 @@ class MapController: UIViewController {
 extension MapController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            DispatchQueue.main.async {
+                mapView.setCenter(annotation.coordinate, animated: true)
+            }
+            return nil
+        }
         let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
         pin.animatesDrop = true
         pin.canShowCallout = true
