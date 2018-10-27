@@ -138,6 +138,8 @@ class NoteController: UITableViewController {
         switch segue.identifier {
         case "segueToSelectFolder":
             (segue.destination as! SelectFolderController).note = note
+        case "segueToNoteMap":
+            (segue.destination as! NoteMapController).note = note
         default:
             return
         }

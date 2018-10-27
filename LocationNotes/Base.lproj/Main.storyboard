@@ -85,7 +85,7 @@
         <!--Map-->
         <scene sceneID="ofQ-83-qOg">
             <objects>
-                <viewController id="Q53-0q-tKB" sceneMemberID="viewController">
+                <viewController id="Q53-0q-tKB" customClass="MapController" customModule="LocationNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2A9-7J-I8v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,6 +99,9 @@
                         <viewLayoutGuide key="safeArea" id="qwY-12-5jQ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="SOb-z8-kdp"/>
+                    <connections>
+                        <outlet property="mapView" destination="JLk-LP-edV" id="xK8-8P-bol"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QlL-Uh-xt0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -215,7 +218,7 @@
         <!--Name Note-->
         <scene sceneID="t1K-cz-3LF">
             <objects>
-                <tableViewController id="WCM-20-Vkm" customClass="NoteController" customModule="LocationNotes" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="noteId" id="WCM-20-Vkm" customClass="NoteController" customModule="LocationNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="I6e-1H-Dv7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -323,6 +326,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="V57-gY-pdu" kind="show" identifier="segueToNoteMap" id="wrE-BS-ZuU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -379,6 +385,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9T-iy-nJf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3383" y="543"/>
+        </scene>
+        <!--Note Map Controller-->
+        <scene sceneID="jxM-1t-hJY">
+            <objects>
+                <viewController id="V57-gY-pdu" customClass="NoteMapController" customModule="LocationNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ohr-Kz-vQ5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AYM-97-zlN">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="D9t-Kn-5Kp"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="AYM-97-zlN" id="gEH-tD-bOy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lez-m6-JVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3381.5999999999999" y="1233.7331334332835"/>
         </scene>
         <!--Map-->
         <scene sceneID="VPI-oR-fig">

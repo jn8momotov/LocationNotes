@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A41586E218492CE00B8A27C /* NoteMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A41586D218492CE00B8A27C /* NoteMapController.swift */; };
+		7A415870218502A400B8A27C /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A41586F218502A400B8A27C /* MapController.swift */; };
 		7A8BE75121810ABC00DF0C65 /* SelectFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8BE75021810ABC00DF0C65 /* SelectFolderController.swift */; };
 		7A8BE754218111F900DF0C65 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8BE753218111F900DF0C65 /* LocationManager.swift */; };
 		7AB309D2217F713B005C3CB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB309D1217F713B005C3CB0 /* AppDelegate.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A41586D218492CE00B8A27C /* NoteMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteMapController.swift; sourceTree = "<group>"; };
+		7A41586F218502A400B8A27C /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		7A8BE75021810ABC00DF0C65 /* SelectFolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFolderController.swift; sourceTree = "<group>"; };
 		7A8BE753218111F900DF0C65 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		7AB309CE217F713B005C3CB0 /* LocationNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,7 +112,9 @@
 				7AB309F9217F9C97005C3CB0 /* FoldersController.swift */,
 				7AB309FB217FA431005C3CB0 /* FolderController.swift */,
 				7AE8C399217FB0E00079FE46 /* NoteController.swift */,
+				7A41586D218492CE00B8A27C /* NoteMapController.swift */,
 				7A8BE75021810ABC00DF0C65 /* SelectFolderController.swift */,
+				7A41586F218502A400B8A27C /* MapController.swift */,
 			);
 			path = LocationNotes;
 			sourceTree = "<group>";
@@ -195,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AB309F0217F7A76005C3CB0 /* ImageNote+CoreDataClass.swift in Sources */,
+				7A41586E218492CE00B8A27C /* NoteMapController.swift in Sources */,
 				7AB309FA217F9C97005C3CB0 /* FoldersController.swift in Sources */,
 				7AB309F3217F7A76005C3CB0 /* Folder+CoreDataProperties.swift in Sources */,
 				7AB309FC217FA431005C3CB0 /* FolderController.swift in Sources */,
@@ -209,6 +216,7 @@
 				7A8BE75121810ABC00DF0C65 /* SelectFolderController.swift in Sources */,
 				7AE8C39A217FB0E00079FE46 /* NoteController.swift in Sources */,
 				7AB309DA217F713B005C3CB0 /* LocationNotes.xcdatamodeld in Sources */,
+				7A415870218502A400B8A27C /* MapController.swift in Sources */,
 				7AB309F8217F7DEF005C3CB0 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

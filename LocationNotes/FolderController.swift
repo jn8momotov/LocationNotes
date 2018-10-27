@@ -37,7 +37,9 @@ class FolderController: UITableViewController {
     
     @IBAction func addNoteBarButtonPressed(_ sender: UIBarButtonItem) {
         selectedNote = Note.newNote(name: "", in: folder)
+        selectedNote?.addCurrentLocation()
         performSegue(withIdentifier: "segueToNote", sender: self)
+        print("Координаты заметки: \(selectedNote?.locationActual)")
     }
     
     // MARK: - Table view data source
