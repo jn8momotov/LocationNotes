@@ -29,7 +29,7 @@ class SelectFolderController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellSelectFolder", for: indexPath)
         if indexPath.row == 0 {
-            cell.textLabel?.text = "-"
+            cell.textLabel?.text = "No selected".localize()
             if note?.folder == nil {
                 cell.accessoryType = .checkmark
             }
