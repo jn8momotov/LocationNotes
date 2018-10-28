@@ -7,6 +7,7 @@
 */
 
 CFBundleName = "Заметки";
+CFBundleDisplayName = "Заметки";
 NSCameraUsageDescription = "Разрешите приложению использовать камеру";
 NSLocationWhenInUseUsageDescription = "Разрешите приложению использовать геолокацию";
 NSPhotoLibraryAddUsageDescription = "Разрешите приложению использовать медиатеку";
