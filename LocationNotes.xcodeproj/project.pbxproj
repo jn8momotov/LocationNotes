@@ -31,6 +31,7 @@
 		7AB309FC217FA431005C3CB0 /* FolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB309FB217FA431005C3CB0 /* FolderController.swift */; };
 		7AE8C39A217FB0E00079FE46 /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE8C399217FB0E00079FE46 /* NoteController.swift */; };
 		7AF0488D21859FB900A7F1B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7AF0488B21859FB900A7F1B3 /* InfoPlist.strings */; };
+		7AF0488F2185AD8100A7F1B3 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF0488E2185AD8100A7F1B3 /* NoteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		7AB309FB217FA431005C3CB0 /* FolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderController.swift; sourceTree = "<group>"; };
 		7AE8C399217FB0E00079FE46 /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
 		7AF0488C21859FB900A7F1B3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7AF0488E2185AD8100A7F1B3 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				7AB309DD217F713C005C3CB0 /* LaunchScreen.storyboard */,
 				7AB309F9217F9C97005C3CB0 /* FoldersController.swift */,
 				7AB309FB217FA431005C3CB0 /* FolderController.swift */,
+				7AF0488E2185AD8100A7F1B3 /* NoteCell.swift */,
 				7AE8C399217FB0E00079FE46 /* NoteController.swift */,
 				7A41586D218492CE00B8A27C /* NoteMapController.swift */,
 				7A8BE75021810ABC00DF0C65 /* SelectFolderController.swift */,
@@ -221,6 +224,7 @@
 				7AB309FC217FA431005C3CB0 /* FolderController.swift in Sources */,
 				7A8BE754218111F900DF0C65 /* LocationManager.swift in Sources */,
 				7AB309F2217F7A76005C3CB0 /* Folder+CoreDataClass.swift in Sources */,
+				7AF0488F2185AD8100A7F1B3 /* NoteCell.swift in Sources */,
 				7AB309EE217F7A76005C3CB0 /* Note+CoreDataClass.swift in Sources */,
 				7AB309F5217F7A76005C3CB0 /* Location+CoreDataProperties.swift in Sources */,
 				7AB309EF217F7A76005C3CB0 /* Note+CoreDataProperties.swift in Sources */,

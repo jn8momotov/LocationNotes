@@ -23,6 +23,8 @@ class NoteController: UITableViewController {
         descriptionText.text = note?.textDescription
         imageNote.image = note?.imageActual
         navigationItem.title = note?.name
+        imageNote.layer.cornerRadius = imageNote.frame.width / 2
+        imageNote.clipsToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,6 +34,17 @@ class NoteController: UITableViewController {
         else {
             nameFolderLabel.text = "No selected".localize()
         }
+    }
+    
+    @IBAction func shareBarButtonPressed(_ sender: UIBarButtonItem) {
+        var activities: [Any] = []
+        if let image = note?.imageActual {
+            activities.append(image)
+        }
+        activities.append(note?.name ?? "")
+        activities.append(note?.textDescription ?? "")
+        let activityController = UIActivityViewController(activityItems: activities, applicationActivities: nil)
+        present(activityController, animated: true, completion: nil)
     }
     
     @IBAction func saveNoteBarButtonPressed(_ sender: UIBarButtonItem) {

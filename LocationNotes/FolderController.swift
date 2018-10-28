@@ -52,20 +52,12 @@ class FolderController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 70
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellNote", for: indexPath)
-        let note = notesActual[indexPath.row]
-        cell.textLabel?.text = note.name!
-        cell.detailTextLabel?.text = note.dateUpdateString
-        if let image = note.imageSmall {
-            cell.imageView?.image = UIImage(data: image as Data)
-        }
-        else {
-            cell.imageView?.image = nil
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellNote", for: indexPath) as! NoteCell
+        cell.initCell(for: notesActual[indexPath.row])
         return cell
     }
     
